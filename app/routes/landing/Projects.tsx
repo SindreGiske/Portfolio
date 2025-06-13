@@ -1,3 +1,4 @@
+import IconCarousel from "~/components/IconCarousel";
 
 
 export default function Projects() {
@@ -8,7 +9,7 @@ export default function Projects() {
         <section className="relative h-screen w-[99%] overflow-hidden"
         id={"projects"}
         >
-
+            <IconCarousel/>
 
 
 

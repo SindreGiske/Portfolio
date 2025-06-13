@@ -35,7 +35,7 @@ export default function HeroSection() {
                         <GithubOriginal className={"bg-amber-300 rounded-full"} size={"50"} />
                     </HeroLink>
                     <HeroLink name={"Linkedin"} href={"https://www.linkedin.com/in/sindre-giske-7a21a62ab/"}>
-                        <img src={"public/customLinkedIn.svg"}
+                        <img src={"/customLinkedIn.svg"}
                              alt={"custom made LinkedIn Logo"}
                              className="rounded-4xl h-[50px] w-[50px]"
                         />

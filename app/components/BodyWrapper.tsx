@@ -37,7 +37,7 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
     return (
         <body id="root">
         <header className="flex justify-end z-20">
-            <nav className="flex items-center justify-center w-4/5 md:w-3/5 h-36 fixed top-0 border-amber-300 border-b-2 rounded-bl-full">
+            <nav className="flex items-center justify-center z-20 w-3/4 md:w-3/5 h-16 md:h-36 fixed top-0 border-amber-300 border-b-2 rounded-bl-full">
             </nav>
         </header>
         <main className="bg-neutral-950">{children}</main>
@@ -46,7 +46,7 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
             onClick={() => scrollSection("down")}
         >
             <img
-                src="public/scrollDownChevron.svg"
+                src="/scrollDownChevron.svg"
                 alt="Scroll Down"
                 className="h-32 w-32 opacity-30"
             />

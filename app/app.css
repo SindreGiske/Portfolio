@@ -45,6 +45,19 @@ section {
   }
 }
 
+@keyframes slideIcon {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120vw);
+  }
+}
+
+.animate-slide-icon {
+  animation: slideIcon 60s linear forwards;
+}
+
 .scrollButtonBG {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
 }

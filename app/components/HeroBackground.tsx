@@ -22,7 +22,7 @@ export default function HeroBackground({ speed = 1000 }: { speed?: number }) {
                     // Calculate diagonal offset
                     const offset = (x + y) / 50;
                     const alpha = (Math.sin((time / speed) + offset) + 1) / 2;
-                    ctx.fillStyle = `rgba(255, 210, 48, ${alpha * 0.1})`; // max 0.1 opacity
+                    ctx.fillStyle = `rgba(255, 210, 48, ${alpha * 0.1})`;
                     ctx.fillRect(x, y, size, size);
                 }
             }

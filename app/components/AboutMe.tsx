@@ -2,11 +2,11 @@ import React from "react";
 
 export const AboutMe = ({ className }: { className?: string }) => {
     const Pstyle = ({ children }: { children: React.ReactNode }) => {
-        return <p className="p-2 text-base md:text-2xl">{children}</p>;
+        return <p className="p-2 text-base select-none lg:text-1xl xl:text-2xl">{children}</p>;
     };
     return (
         <div className={`${className} text-amber-100 md:w-[500px] p-4`}>
-            <h1 className="p-2 text-4xl">Hvem er jeg?</h1>
+            <h1 className="p-2 text-xl md:text-4xl">Hvem er jeg?</h1>
             <Pstyle>
                 Hele livet mitt har jeg vært fascinert og forelsket i Vitenskap og
                 Kunst. Jeg konkluderte etterhvert at koding og programmering er den
