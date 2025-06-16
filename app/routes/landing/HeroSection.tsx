@@ -45,7 +45,7 @@ export default function HeroSection() {
                     <h1 className="text-3xl md:text-5xl font-bold text-amber-300 text-center">
                         SINDRE TOFTE GISKE
                     </h1>
-                    <Hstyle>Full-Stack Utvikler</Hstyle>
+                    <h2 className="text-2xl md:text-4xl font-bold, text-amber-300">Full-Stack Utvikler</h2>
                 </div>
             </div>
         </section>
