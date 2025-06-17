@@ -11,7 +11,6 @@ import ReactOriginalWordmark from 'devicons-react/icons/ReactOriginalWordmark';
 import RemixOriginalWordmark from 'devicons-react/icons/RemixOriginalWordmark';
 import DockerPlainWordmark from 'devicons-react/icons/DockerPlainWordmark';
 import KubernetesOriginalWordmark from 'devicons-react/icons/KubernetesOriginalWordmark';
-import UbuntuOriginalWordmark from 'devicons-react/icons/UbuntuOriginalWordmark';
 import GrafanaOriginalWordmark from 'devicons-react/icons/GrafanaOriginalWordmark';
 import TypescriptOriginal from 'devicons-react/icons/TypescriptOriginal';
 
@@ -20,36 +19,40 @@ import { useEffect, useRef, useState } from "react";
 import React from "react";
 
 export default function IconCarousel() {
-    const baseIcons = [
-        <Html5OriginalWordmark />,
-        <Css3OriginalWordmark />,
-        <RemixOriginalWordmark />,
-        <TailwindcssPlainWordmark />,
-        <JavaOriginalWordmark />,
-        <JavascriptOriginal />,
-        <ReactOriginalWordmark />,
-        <KotlinOriginalWordmark />,
-        <ReactrouterOriginalWordmark />,
-        <DockerPlainWordmark />,
-        <KubernetesOriginalWordmark />,
-        <FigmaOriginal />,
-        <SpringOriginalWordmark />,
-        <TypescriptOriginal />,
-        <UbuntuOriginalWordmark />,
-        <GrafanaOriginalWordmark />,
+    const baseIcons: React.ReactElement<any>[] = [
+        <Html5OriginalWordmark size="100" />,
+        <Css3OriginalWordmark size="100" />,
+        <RemixOriginalWordmark size="100" />,
+        <TailwindcssPlainWordmark size="100" />,
+        <JavaOriginalWordmark size="100" />,
+        <JavascriptOriginal size="100" />,
+        <ReactOriginalWordmark size="100" />,
+        <KotlinOriginalWordmark size="100" />,
+        <ReactrouterOriginalWordmark size="100" />,
+        <DockerPlainWordmark size="100" />,
+        <KubernetesOriginalWordmark size="100" />,
+        <FigmaOriginal size="100" />,
+        <SpringOriginalWordmark size="100" />,
+        <TypescriptOriginal size="100" />,
+        <GrafanaOriginalWordmark size="100" />,
     ];
 
     const [activeIcons, setActiveIcons] = useState<
         { id: number; icon: React.ReactNode; animationDelay: number; startX: number }[]
     >([]);
+
     const nextId = useRef(0);
     const nextIconIndex = useRef(0);
 
-    const animationDuration = 60; // seconds
+    const animationDuration = 60;
     const iconWidthPx = 128;
-    const spacingPx = 26; // margin between icons
+    const spacingPx = 30;
 
     const [containerWidth, setContainerWidth] = useState(0);
+
+    const totalDistancePx = containerWidth + iconWidthPx + spacingPx;
+    const iconSpeedPxPerSec = totalDistancePx / animationDuration;
+    const spawnIntervalMs = ((iconWidthPx + spacingPx) / iconSpeedPxPerSec) * 1000;
 
     useEffect(() => {
         setContainerWidth(window.innerWidth);
@@ -58,47 +61,51 @@ export default function IconCarousel() {
     useEffect(() => {
         if (containerWidth === 0) return;
 
-        const totalDistancePx = containerWidth + iconWidthPx + spacingPx;
-        const initialCount = Math.floor(containerWidth / (iconWidthPx + spacingPx));
         const startX = -iconWidthPx - spacingPx;
 
-        // Prefill initial icons
-        for (let i = 0; i < initialCount; i++) {
-            const icon = baseIcons[i % baseIcons.length];
+        const maxIcons = baseIcons.length;
+        const initialCount = Math.min(
+            maxIcons,
+            Math.floor(containerWidth / (iconWidthPx + spacingPx))
+        );
+
+        for (let i = initialCount - 1; i >= 0; i--) {
+            const icon = baseIcons[i];
+            if (!React.isValidElement(icon)) continue;
+
             const id = nextId.current++;
-            const animationDelay = -(animationDuration / initialCount) * i;
+            const animationDelay = -spawnIntervalMs / 1000 * (initialCount - 1 - i);
 
             setActiveIcons((prev) => [
                 ...prev,
                 {
                     id,
-                    icon: React.cloneElement(icon, { size: "100" }),
+                    icon: React.cloneElement(icon),
                     animationDelay,
                     startX,
                 },
             ]);
         }
 
-        const spawnInterval = (animationDuration * (iconWidthPx + spacingPx)) / totalDistancePx * 1000;
-
         const interval = setInterval(() => {
-            const icon = baseIcons[nextIconIndex.current];
-            const id = nextId.current++;
+            const rawIcon = baseIcons[nextIconIndex.current];
+            if (!React.isValidElement(rawIcon)) return;
 
-            console.log(`Spawning icon index ${nextIconIndex.current}, id ${id}`); // Debug log
+            const id = nextId.current++;
+            const icon = React.cloneElement(rawIcon);
 
             setActiveIcons((prev) => [
                 ...prev,
                 {
                     id,
-                    icon: React.cloneElement(icon, { size: "100" }),
+                    icon,
                     animationDelay: 0,
                     startX,
                 },
             ]);
 
             nextIconIndex.current = (nextIconIndex.current + 1) % baseIcons.length;
-        }, spawnInterval);
+        }, spawnIntervalMs);
 
         return () => clearInterval(interval);
     }, [containerWidth]);
@@ -108,9 +115,10 @@ export default function IconCarousel() {
     };
 
     return (
-        <div className="relative h-36 w-screen overflow-hidden">
-            <div className="absolute overflow-hidden -left-10 top-0 h-full w-1/2 z-20 pointer-events-none bg-gradient-to-r from-black/90 to-black-0/0" />
-            <div className="absolute overflow-hidden -right-10 top-0 h-full w-1/2 z-20 pointer-events-none bg-gradient-to-l from-black/90 to-black-0/0" />
+        <div className="relative md:h-44 w-screen hidden md:inline overflow-hidden border-amber-300/20 border-y-2">
+            <div className="absolute overflow-hidden -left-10 top-0 h-full w-1/2 z-20 pointer-events-none bg-gradient-to-r from-black/80 to-black-0/0" />
+            <div className="absolute overflow-hidden -right-10 top-0 h-full w-1/2 z-20 pointer-events-none bg-gradient-to-l from-black/80 to-black-0/0" />
+
             {activeIcons.map(({ id, icon, animationDelay, startX }, index) => (
                 <div
                     key={id}
@@ -122,7 +130,7 @@ export default function IconCarousel() {
                     }}
                     onAnimationEnd={() => handleAnimationEnd(id)}
                 >
-                    <div className="h-36 w-36 flex items-center justify-center border-amber-300  bg-gradient-to-t from-amber-50 to-black-0/0 border-b-4 rounded-full">
+                    <div className="h-36 w-36 flex items-center justify-center border-amber-300 bg-gradient-to-t from-amber-100 to-black-0/0 border-b-4 rounded-full">
                         {icon}
                     </div>
                 </div>

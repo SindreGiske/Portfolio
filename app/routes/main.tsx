@@ -1,8 +1,8 @@
 import type {Route} from "../../.react-router/types/app/routes/+types/main";
 import BodyWrapper from "~/components/BodyWrapper";
 import HeroSection from "~/routes/landing/HeroSection";
-import About from "~/routes/landing/About";
-import Projects from "~/routes/landing/Projects";
+import AboutSection from "~/routes/landing/AboutSection";
+import ProjectsSection from "~/routes/landing/ProjectsSection";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -16,8 +16,8 @@ export default function main() {
     return (
         <BodyWrapper>
             <HeroSection/>
-            <About/>
-            <Projects />
+            <AboutSection/>
+            <ProjectsSection/>
         </BodyWrapper>
     )
 }

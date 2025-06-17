@@ -3,12 +3,10 @@ import HeroBackground from "~/components/HeroBackground";
 import GithubOriginal from 'devicons-react/icons/GithubOriginal';
 
 import React from "react";
+import {useInView} from "~/customHooks/useInView";
 
 export default function HeroSection() {
-
-    const Hstyle = ({ children }: { children: React.ReactNode }) => {
-        return <h2 className="text-2xl md:text-4xl font-bold, text-amber-300">{children}</h2>;
-    };
+    const { ref, hasAnimated } = useInView<HTMLDivElement>(0.2);
 
     type HeroLinkProps = {
         name: string;
@@ -26,11 +24,18 @@ export default function HeroSection() {
     };
 
     return (
-        <section className="relative h-[90vh] w-[99%] overflow-hidden"
-        id={"hero"}>
+        <section
+            ref={ref}
+            id={"hero"}
+            className="relative h-[90vh] w-[99%] overflow-hidden"
+            >
             <HeroBackground />
             <div className="relative z-10 flex top-12 md:flex-row flex-col-reverse items-center justify-center h-full w-full gap-3">
-                <div className="flex md:flex-col items-start h-fit w-fit gap-2">
+                <div className={`flex md:flex-col items-start h-fit w-fit gap-2
+                     text-2xl md:text-4xl font-bold, text-amber-300
+                            transition-all duration-600 ease-in delay-[2500ms]
+                            ${hasAnimated ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}
+                >
                     <HeroLink name={"GitHub"} href={"https://github.com/SindreGiske"}>
                         <GithubOriginal className={"bg-amber-300 rounded-full"} size={"50"} />
                     </HeroLink>
@@ -42,10 +47,24 @@ export default function HeroSection() {
                     </HeroLink>
                 </div>
                 <div className="flex flex-col md:items-start items-center h-fit w-fit gap-3">
-                    <h1 className="text-3xl md:text-5xl font-bold text-amber-300 text-center">
-                        SINDRE TOFTE GISKE
-                    </h1>
-                    <h2 className="text-2xl md:text-4xl font-bold, text-amber-300">Full-Stack Utvikler</h2>
+                    <div className="text-3xl flex flex-row md:text-5xl gap-4 font-bold text-amber-300 text-center">
+                        <h1 className={`transition-all duration-600 ease-in
+                            ${hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
+                            SINDRE
+                        </h1>
+                        <h1 className={`transition-all duration-600 ease-in delay-500
+                            ${hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
+                            TOFTE
+                        </h1>
+                        <h1 className={`transition-all duration-600 ease-in delay-1000
+                            ${hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>
+                            GISKE
+                        </h1>
+                    </div>
+
+                    <h2 className={`text-2xl md:text-4xl font-bold, text-amber-300
+                            transition-all duration-600 ease-in delay-[2000ms]
+                            ${hasAnimated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}`}>Full-Stack Utvikler</h2>
                 </div>
             </div>
         </section>
