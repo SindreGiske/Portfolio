@@ -1,4 +1,3 @@
-import IconCarousel from "~/components/IconCarousel";
 import ProjectCard from "~/components/ProjectCard";
 import { useInView } from "~/customHooks/useInView";
 import React from "react";
@@ -48,12 +47,6 @@ export default function ProjectsSection() {
           offset={"1000ms"}
         />
       </div>
-      <h1
-        className={`hidden max-w-4/5 transform p-3 text-center font-bold text-amber-300/90 transition-all duration-1000 ease-in-out md:inline md:text-5xl ${hasAnimated ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"}`}
-      >
-        Noen språk og verktøy jeg har erfaring med:
-      </h1>
-      <IconCarousel />
     </section>
   );
 }

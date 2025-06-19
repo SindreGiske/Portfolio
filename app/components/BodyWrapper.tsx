@@ -4,6 +4,7 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
   const [currentSection, setCurrentSection] = React.useState<HTMLAttributeAnchorTarget>("hero");
   const [navVisible, setNavVisible] = React.useState(false);
 
+  // Waits 3 seconds after site is loaded to start fade in of nav links
   useEffect(() => {
     const timeout = setTimeout(() => setNavVisible(true), 3000);
     return () => clearTimeout(timeout);
@@ -25,6 +26,7 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
     }
   }
 
+  // Listens for keypresses for page navigation and looks for which section/sections are in view
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowDown") {
@@ -89,11 +91,11 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
     return (
       <button
         onClick={handleClick}
-        className={`flex h-16 w-18 items-center justify-center rounded-full bg-neutral-950/70 transition hover:scale-110 ${isActive ? "border-r-2 border-r-amber-300" : "border-r-1 border-r-amber-100"} ${className}`}
+        className={`flex h-14 w-14 items-center justify-center rounded-full bg-neutral-950/70 transition hover:scale-110 ${isActive ? "border-r-2 border-r-amber-300" : "border-r-1 border-r-amber-100"} ${className}`}
       >
-        <h2 className={`${isActive ? "scale-110 text-amber-300 drop-shadow-[0_0_1px_#facc15]" : "text-amber-100"}`}>
+        <h3 className={`${isActive ? "scale-110 text-amber-300 drop-shadow-[0_0_1px_#facc15]" : "text-amber-100"}`}>
           {children}
-        </h2>
+        </h3>
       </button>
     );
   };
@@ -116,12 +118,12 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
 
       <main>{children}</main>
 
-      <nav className="fixed bottom-0 z-20 hidden w-36 items-center justify-between rounded-tr-full border-r-2 border-amber-300 bg-neutral-950/70 md:flex md:h-1/2">
+      <nav className="fixed bottom-0 z-20 hidden w-32 items-center justify-between rounded-tr-full border-r-2 border-amber-300 bg-neutral-950/70 md:flex md:h-1/2">
         <div
-          className={`flex h-4/5 w-full flex-col items-center justify-between gap-3 pt-4 pr-8 transition-opacity duration-[5000ms] ease-in-out ${navVisible ? "opacity-100" : "opacity-0"} `}
+          className={`flex h-4/5 w-full flex-col items-center justify-between gap-3 pt-4 pr-4 transition-opacity duration-[5000ms] ease-in-out ${navVisible ? "opacity-100" : "opacity-0"} `}
         >
           <NavLink sectionId="hero" currentSection={currentSection}>
-            Hero
+            Banner
           </NavLink>
           <NavLink sectionId="about" currentSection={currentSection}>
             About

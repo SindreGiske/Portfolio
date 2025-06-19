@@ -21,16 +21,11 @@ export default function ProjectCard({
     <article
       ref={ref}
       style={{ transitionDelay: hasAnimated ? offset : "0ms" }}
-      className={`shadow- relative m-2 flex h-80 w-2/3 max-w-[700px] flex-col items-center justify-between rounded-br-[80px] border-r-2 border-b-2 border-amber-300 p-4 pt-0 text-center text-amber-100 shadow-amber-100/40 transition-all duration-1000 ease-in select-none sm:w-1/2 md:w-1/4 ${hasAnimated ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"} `}
+      className={`relative m-2 flex h-80 w-2/3 max-w-[700px] flex-col items-center justify-between rounded-br-[80px] border-r-2 border-b-2 border-amber-300 p-4 pt-0 text-center text-amber-100 shadow-amber-100/40 transition-all duration-1000 ease-in select-none sm:w-1/2 md:w-1/4 ${hasAnimated ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"} `}
     >
       <h1 className={"font-bold tracking-wider italic md:text-2xl"}>{name}</h1>
       <p className={"text-sm"}>{description}</p>
-      <img
-        src={image}
-        alt={name + "image"}
-        className={"pointer-events-none max-h-2/3 w-[90%]"}
-        draggable={false}
-      />
+      <img src={image} alt={name + "image"} className={"pointer-events-none max-h-2/3 w-[90%]"} draggable={false} />
       <a
         target="_blank"
         href={href}
