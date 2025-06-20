@@ -18,7 +18,7 @@ export default function ProjectsSection() {
       >
         Noen prosjekter jeg har jobbet på:
       </h1>
-      <div className="flex flex-col items-center justify-center gap-10 pb-12 md:flex-row md:gap-10">
+      <div className="flex flex-col items-center justify-center gap-8 pb-12 md:flex-row">
         <ProjectCard
           name={"Text basert spill"}
           description={

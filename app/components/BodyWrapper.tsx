@@ -5,9 +5,9 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
   const [currentSection, setCurrentSection] = React.useState<HTMLAttributeAnchorTarget>("hero");
   const [navVisible, setNavVisible] = React.useState(false);
 
-  // Waits 3 seconds after site is loaded to start fade in of nav links
+  // Waits 2.5 seconds after site is loaded to start fade in of nav links
   useEffect(() => {
-    const timeout = setTimeout(() => setNavVisible(true), 3000);
+    const timeout = setTimeout(() => setNavVisible(true), 2500);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -87,21 +87,25 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
       }
     };
 
+    let ModifiedChildren: String = isActive ? children!!.toString().toUpperCase() : children!!.toString();
+
     return (
       <button
         onClick={handleClick}
         aria-label={"Naviger til " + { children }}
-        className={`flex h-10 w-24 items-center justify-center rounded-full bg-neutral-950/20 transition hover:scale-110 ${
-          isActive ? "border-r-2 border-amber-300/60" : "border-r-1 border-amber-100/60"
+        className={`flex h-26 items-center justify-center rounded-full bg-neutral-950/10 transition hover:scale-110 ${
+          isActive ? "w-28 border-r-2 border-amber-300/60" : "w-26 border-r-1 border-amber-300/40"
         }`}
       >
-        <h3
-          className={`${isActive ? "scale-110 text-amber-300/90 drop-shadow-[0_0_1px_#facc15]" : "text-amber-100/90"}`}
-        >
-          {children}
+        <h3 className={`${isActive ? "text-amber-300/90 font-stretch-extra-condensed" : "text-amber-100/90"}`}>
+          {ModifiedChildren}
         </h3>
       </button>
     );
+  };
+
+  const VerticalBar = () => {
+    return <p className={"text-3xl font-thin text-amber-300/30"}>|</p>;
   };
 
   // PAGE BODY
@@ -122,24 +126,32 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
       <Background />
       <main>{children}</main>
 
-      <nav className="fixed bottom-0 z-20 hidden w-32 items-center justify-between rounded-tr-[90px] border-r-2 border-amber-300/90 bg-neutral-950/0 md:flex md:h-1/2">
-        <div
-          className={`flex h-9/10 w-full flex-col items-center justify-between gap-3 pt-12 transition-opacity duration-[5000ms] ease-in-out ${
-            navVisible ? "opacity-100" : "opacity-0"
-          } `}
-        >
+      <nav
+        className={`fixed bottom-0 z-20 hidden h-full w-32 items-center justify-between bg-gradient-to-l from-neutral-950/60 to-neutral-950/10 transition-opacity duration-[3000ms] ease-in-out md:flex ${
+          navVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div className={"absolute left-32 h-screen overflow-hidden"}>
+          <div className={"h-1/2 w-[1px] bg-gradient-to-t from-amber-300/50 to-amber-300/0"} />
+          <div className={"h-1/2 w-[1px] bg-gradient-to-t from-amber-300/0 to-amber-300/50"} />
+        </div>
+        <div className={`flex h-9/10 w-full flex-col items-center justify-center gap-2 pr-2`}>
           <NavLink sectionId="hero" currentSection={currentSection}>
             Banner
           </NavLink>
+          <VerticalBar />
           <NavLink sectionId="about" currentSection={currentSection}>
-            Om Meg
+            Om meg
           </NavLink>
+          <VerticalBar />
           <NavLink sectionId="projects" currentSection={currentSection}>
             Prosjekter
           </NavLink>
+          <VerticalBar />
           <NavLink sectionId="experience" currentSection={currentSection}>
             Erfaringer
           </NavLink>
+          <VerticalBar />
           <NavLink sectionId="contact" currentSection={currentSection}>
             Kontakt
           </NavLink>
