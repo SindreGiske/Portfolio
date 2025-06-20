@@ -71,12 +71,10 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
     children,
     sectionId,
     currentSection,
-    className = "",
   }: {
     children: React.ReactNode;
     sectionId: string;
     currentSection: string;
-    className?: string;
   }) => {
     const isActive = currentSection === sectionId;
 
@@ -92,11 +90,14 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
     return (
       <button
         onClick={handleClick}
-        className={`flex h-8 w-24 items-center justify-center rounded-full bg-neutral-950/70 transition hover:scale-110 ${
-          isActive ? "border-x-2 border-x-amber-300" : "border-x-1 border-x-amber-100"
-        } ${className}`}
+        aria-label={"Naviger til " + { children }}
+        className={`flex h-10 w-24 items-center justify-center rounded-full bg-neutral-950/20 transition hover:scale-110 ${
+          isActive ? "border-r-2 border-amber-300/60" : "border-r-1 border-amber-100/60"
+        }`}
       >
-        <h3 className={`${isActive ? "scale-110 text-amber-300 drop-shadow-[0_0_1px_#facc15]" : "text-amber-100"}`}>
+        <h3
+          className={`${isActive ? "scale-110 text-amber-300/90 drop-shadow-[0_0_1px_#facc15]" : "text-amber-100/90"}`}
+        >
           {children}
         </h3>
       </button>
@@ -123,7 +124,7 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
 
       <nav className="fixed bottom-0 z-20 hidden w-32 items-center justify-between rounded-tr-[90px] border-r-2 border-amber-300/90 bg-neutral-950/0 md:flex md:h-1/2">
         <div
-          className={`flex h-4/5 w-full flex-col items-center justify-between gap-3 pt-8 transition-opacity duration-[5000ms] ease-in-out ${
+          className={`flex h-9/10 w-full flex-col items-center justify-between gap-3 pt-12 transition-opacity duration-[5000ms] ease-in-out ${
             navVisible ? "opacity-100" : "opacity-0"
           } `}
         >
