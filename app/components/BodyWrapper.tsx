@@ -1,4 +1,5 @@
 import React, { type HTMLAttributeAnchorTarget, useEffect } from "react";
+import Background from "~/components/Background";
 
 export default function BodyWrapper({ children }: { children: React.ReactNode }) {
   const [currentSection, setCurrentSection] = React.useState<HTMLAttributeAnchorTarget>("hero");
@@ -91,7 +92,9 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
     return (
       <button
         onClick={handleClick}
-        className={`flex h-14 w-14 items-center justify-center rounded-full bg-neutral-950/70 transition hover:scale-110 ${isActive ? "border-r-2 border-r-amber-300" : "border-r-1 border-r-amber-100"} ${className}`}
+        className={`flex h-8 w-24 items-center justify-center rounded-full bg-neutral-950/70 transition hover:scale-110 ${
+          isActive ? "border-x-2 border-x-amber-300" : "border-x-1 border-x-amber-100"
+        } ${className}`}
       >
         <h3 className={`${isActive ? "scale-110 text-amber-300 drop-shadow-[0_0_1px_#facc15]" : "text-amber-100"}`}>
           {children}
@@ -115,24 +118,29 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
           </div>
         </div>
       </header>
-
+      <Background />
       <main>{children}</main>
 
-      <nav className="fixed bottom-0 z-20 hidden w-32 items-center justify-between rounded-tr-full border-r-2 border-amber-300 bg-neutral-950/70 md:flex md:h-1/2">
+      <nav className="fixed bottom-0 z-20 hidden w-32 items-center justify-between rounded-tr-[90px] border-r-2 border-amber-300/90 bg-neutral-950/0 md:flex md:h-1/2">
         <div
-          className={`flex h-4/5 w-full flex-col items-center justify-between gap-3 pt-4 pr-4 transition-opacity duration-[5000ms] ease-in-out ${navVisible ? "opacity-100" : "opacity-0"} `}
+          className={`flex h-4/5 w-full flex-col items-center justify-between gap-3 pt-8 transition-opacity duration-[5000ms] ease-in-out ${
+            navVisible ? "opacity-100" : "opacity-0"
+          } `}
         >
           <NavLink sectionId="hero" currentSection={currentSection}>
             Banner
           </NavLink>
           <NavLink sectionId="about" currentSection={currentSection}>
-            About
+            Om Meg
           </NavLink>
           <NavLink sectionId="projects" currentSection={currentSection}>
-            Projects
+            Prosjekter
+          </NavLink>
+          <NavLink sectionId="experience" currentSection={currentSection}>
+            Erfaringer
           </NavLink>
           <NavLink sectionId="contact" currentSection={currentSection}>
-            Contact
+            Kontakt
           </NavLink>
         </div>
       </nav>

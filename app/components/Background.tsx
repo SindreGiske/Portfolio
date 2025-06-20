@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-export default function HeroBackground({ speed = 700 }: { speed?: number }) {
+export default function Background({ speed = 700 }: { speed?: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

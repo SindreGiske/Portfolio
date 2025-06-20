@@ -12,7 +12,9 @@ export default function ProjectsSection() {
       className="relative flex min-h-screen w-[99.9%] flex-col items-center justify-between overflow-hidden py-12 md:py-32"
     >
       <h1
-        className={`max-w-4/5 transform p-8 text-center text-2xl font-bold text-amber-300/90 transition-all duration-1000 ease-in-out md:text-5xl ${hasAnimated ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"}`}
+        className={`max-w-4/5 transform p-8 text-center text-2xl font-bold text-amber-300/90 transition-all duration-1000 ease-in-out md:text-5xl ${
+          hasAnimated ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"
+        }`}
       >
         Noen prosjekter jeg har jobbet på:
       </h1>
@@ -38,12 +40,13 @@ export default function ProjectsSection() {
           offset={"500ms"}
         />
         <ProjectCard
-          name={"Stein, Saks, Papir"}
+          name={"fint-core-status-service"}
           description={
-            "Enkel nettside hvor du spiller stein, saks, papir mot Shrek, fordi hvorfor ikke. Lagde det når jeg først lærte meg å kode."
+            "Tjeneste for sikker overvåking av forskjellige datatyper vi håndterer og leverer i Novari. " +
+            "Her har jeg også tilføyet en del både på frontend og backend."
           }
-          href={"https://github.com/SindreGiske/RPS"}
-          image={"/rpsGame.png"}
+          href={"https://github.com/FINTLabs/fint-core-status-service"}
+          image={"/status-service.png"}
           offset={"1000ms"}
         />
       </div>
