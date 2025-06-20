@@ -5,9 +5,9 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
   const [currentSection, setCurrentSection] = React.useState<HTMLAttributeAnchorTarget>("hero");
   const [navVisible, setNavVisible] = React.useState(false);
 
-  // Waits 2.5 seconds after site is loaded to start fade in of nav links
+  // Waits 3 seconds after site is loaded to start fade in of nav links
   useEffect(() => {
-    const timeout = setTimeout(() => setNavVisible(true), 2500);
+    const timeout = setTimeout(() => setNavVisible(true), 3000);
     return () => clearTimeout(timeout);
   }, []);
 
