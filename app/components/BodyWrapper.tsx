@@ -112,7 +112,7 @@ export default function BodyWrapper({ children }: { children: React.ReactNode })
   return (
     <body id="root" className="bg-neutral-950">
       <header className="z-20 flex justify-end">
-        <div className="to-black-0/0 fixed top-0 z-20 flex h-16 w-3/4 flex-col items-center justify-center rounded-bl-full border-b-2 border-amber-300 bg-gradient-to-t from-black/70 md:h-32 md:w-3/5">
+        <div className="to-black-0/0 fixed top-0 z-20 flex h-16 w-3/4 flex-col items-center justify-center rounded-bl-full border-b-2 border-amber-300 bg-gradient-to-t from-black/70 text-center md:h-32 md:w-3/5 md:text-start">
           <div
             className={`transition-opacity duration-1000 ease-in-out ${
               currentSection === "hero" ? "opacity-0" : "opacity-90"

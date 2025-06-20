@@ -13,7 +13,7 @@ export default function ExperienceSection() {
     >
       <div className="flex flex-col items-center justify-center gap-8">
         <h1
-          className={`hidden w-full transform p-3 text-start font-bold text-amber-300/90 transition-all duration-1000 ease-in-out md:inline md:pl-36 md:text-6xl ${
+          className={`w-full transform p-3 pt-12 text-start text-2xl font-bold text-amber-300/90 transition-all duration-1000 ease-in-out md:pl-36 md:text-6xl ${
             hasAnimated ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"
           }`}
         >
