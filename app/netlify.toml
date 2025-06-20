@@ -4,5 +4,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/root.tsx"
+  to = "app/root.tsx"
   status = 200
