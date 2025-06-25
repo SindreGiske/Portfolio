@@ -1,8 +1,6 @@
 import ReactrouterOriginalWordmark from "devicons-react/icons/ReactrouterOriginalWordmark";
-import Html5OriginalWordmark from "devicons-react/icons/Html5OriginalWordmark";
 import JavascriptOriginal from "devicons-react/icons/JavascriptOriginal";
 import TailwindcssPlainWordmark from "devicons-react/icons/TailwindcssPlainWordmark";
-import Css3OriginalWordmark from "devicons-react/icons/Css3OriginalWordmark";
 import JavaOriginalWordmark from "devicons-react/icons/JavaOriginalWordmark";
 import KotlinOriginalWordmark from "devicons-react/icons/KotlinOriginalWordmark";
 import FigmaOriginal from "devicons-react/icons/FigmaOriginal";
@@ -12,15 +10,11 @@ import RemixOriginalWordmark from "devicons-react/icons/RemixOriginalWordmark";
 import DockerPlainWordmark from "devicons-react/icons/DockerPlainWordmark";
 import KubernetesOriginalWordmark from "devicons-react/icons/KubernetesOriginalWordmark";
 import GrafanaOriginalWordmark from "devicons-react/icons/GrafanaOriginalWordmark";
-import TypescriptOriginal from "devicons-react/icons/TypescriptOriginal";
 
-import { useEffect, useRef, useState } from "react";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function IconCarousel() {
   const baseIcons: React.ReactElement<any>[] = [
-    <Html5OriginalWordmark size="100" />,
-    <Css3OriginalWordmark size="100" />,
     <RemixOriginalWordmark size="100" />,
     <TailwindcssPlainWordmark size="100" />,
     <JavaOriginalWordmark size="100" />,
@@ -32,7 +26,6 @@ export default function IconCarousel() {
     <KubernetesOriginalWordmark size="100" />,
     <FigmaOriginal size="100" />,
     <SpringOriginalWordmark size="100" />,
-    <TypescriptOriginal size="100" />,
     <GrafanaOriginalWordmark size="100" />,
   ];
 
