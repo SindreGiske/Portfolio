@@ -1,7 +1,6 @@
 import IconCarousel from "~/components/IconCarousel";
 import React from "react";
 import { useInView } from "~/customHooks/useInView";
-import TechStack from "~/components/TechStack";
 
 export default function ExperienceSection() {
   const { ref, hasAnimated } = useInView();
@@ -14,7 +13,7 @@ export default function ExperienceSection() {
     >
       <div className="flex flex-col items-center justify-center gap-8">
         <h1
-          className={`w-full transform p-3 pt-12 text-start text-2xl font-bold text-amber-300/90 transition-all duration-1000 ease-in-out md:pl-36 md:text-6xl ${
+          className={`w-full transform pt-24 text-start text-2xl font-bold text-amber-300/90 transition-all duration-1000 ease-in-out md:pt-12 md:pl-46 md:text-6xl ${
             hasAnimated ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"
           }`}
         >
@@ -22,34 +21,34 @@ export default function ExperienceSection() {
         </h1>
         <IconCarousel />
       </div>
-      <div>
-        <article className="flex h-full w-3/4 flex-col items-center justify-center">
-          <ol className="space-y-8 pb-12 text-start text-2xl font-extralight tracking-wider text-amber-300 font-stretch-expanded">
-            <li
-              className={`transform transition-all delay-[300ms] duration-1000 ease-in-out ${
-                hasAnimated ? "translate-y-0" + " opacity-100" : "-translate-y-20 opacity-0"
-              }`}
-            >
-              10 .2023 - 02.2024 : Kodehode intensivt frontend kodekurs.
-            </li>
-            <li
-              className={`transform transition-all delay-[500ms] duration-1000 ease-in-out ${
-                hasAnimated ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"
-              }`}
-            >
-              02.2024 - 09.2024 : Praktikant, IT-utvikler hos Novari IKS.
-            </li>
-            <li
-              className={`transform transition-all delay-[700ms] duration-1000 ease-in-out ${
-                hasAnimated ? "translate-y-0" + " opacity-100" : "-translate-y-20 opacity-0"
-              }`}
-            >
-              09.2024 - 06.2027 : Lærling, IT-utvikler hos Novari IKS.
-            </li>
-          </ol>
-        </article>
-        <TechStack />
-      </div>
+      <article className="flex h-full flex-col items-center justify-center">
+        <ol className="space-y-8 pb-32 text-start text-sm font-extralight tracking-wider text-amber-300 font-stretch-expanded md:pb-12 md:text-2xl">
+          <li
+            className={`transform transition-all delay-[300ms] duration-1000 ease-in-out ${
+              hasAnimated ? "translate-y-0" + " opacity-100" : "-translate-y-20 opacity-0"
+            }`}
+          >
+            <p>10.2023 - 02.2024 :</p>
+            <p>Kodehode intensivt frontend kodekurs.</p>
+          </li>
+          <li
+            className={`transform transition-all delay-[500ms] duration-1000 ease-in-out ${
+              hasAnimated ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"
+            }`}
+          >
+            <p>02.2024 - 09.2024 :</p>
+            <p>Praktikant, IT-utvikler hos Novari IKS.</p>
+          </li>
+          <li
+            className={`transform transition-all delay-[700ms] duration-1000 ease-in-out ${
+              hasAnimated ? "translate-y-0" + " opacity-100" : "-translate-y-20 opacity-0"
+            }`}
+          >
+            <p>09.2024 - 06.2027 :</p>
+            <p>Lærling, IT-utvikler hos Novari IKS.</p>
+          </li>
+        </ol>
+      </article>
     </section>
   );
 }

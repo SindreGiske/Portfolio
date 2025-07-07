@@ -15,18 +15,18 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function IconCarousel() {
   const baseIcons: React.ReactElement<any>[] = [
-    <RemixOriginalWordmark size="100" />,
-    <TailwindcssPlainWordmark size="100" />,
-    <JavaOriginalWordmark size="100" />,
-    <JavascriptOriginal size="100" />,
-    <ReactOriginalWordmark size="100" />,
-    <KotlinOriginalWordmark size="100" />,
-    <ReactrouterOriginalWordmark size="100" />,
-    <DockerPlainWordmark size="100" />,
-    <KubernetesOriginalWordmark size="100" />,
-    <FigmaOriginal size="100" />,
-    <SpringOriginalWordmark size="100" />,
-    <GrafanaOriginalWordmark size="100" />,
+    <RemixOriginalWordmark size="80" />,
+    <TailwindcssPlainWordmark size="80" />,
+    <JavaOriginalWordmark size="80" />,
+    <JavascriptOriginal size="80" />,
+    <ReactOriginalWordmark size="80" />,
+    <KotlinOriginalWordmark size="80" />,
+    <ReactrouterOriginalWordmark size="80" />,
+    <DockerPlainWordmark size="80" />,
+    <KubernetesOriginalWordmark size="80" />,
+    <FigmaOriginal size="80" />,
+    <SpringOriginalWordmark size="80" />,
+    <GrafanaOriginalWordmark size="80" />,
   ];
 
   const [activeIcons, setActiveIcons] = useState<
@@ -42,8 +42,8 @@ export default function IconCarousel() {
   const nextIconIndex = useRef(0);
 
   const animationDuration = 60;
-  const iconWidthPx = 128;
-  const spacingPx = 30;
+  const iconWidthPx = 100;
+  const spacingPx = 20;
 
   const [containerWidth, setContainerWidth] = useState(0);
 
@@ -109,7 +109,7 @@ export default function IconCarousel() {
   };
 
   return (
-    <div className="relative hidden w-screen overflow-hidden border-y-2 border-amber-300/20 md:inline md:h-44">
+    <div className="relative hidden w-screen overflow-hidden border-y-1 border-amber-300/20 md:inline md:h-32">
       <div className="to-black-0/0 pointer-events-none absolute top-0 -left-10 z-20 h-full w-1/2 overflow-hidden bg-gradient-to-r from-black/80" />
       <div className="to-black-0/0 pointer-events-none absolute top-0 -right-10 z-20 h-full w-1/2 overflow-hidden bg-gradient-to-l from-black/80" />
 
@@ -124,7 +124,7 @@ export default function IconCarousel() {
           }}
           onAnimationEnd={() => handleAnimationEnd(id)}
         >
-          <div className="to-black-0/0 flex h-36 w-36 items-center justify-center rounded-full border-b-4 border-amber-300 bg-gradient-to-t from-amber-100">
+          <div className="to-black-0/0 flex h-28 w-28 items-center justify-center rounded-full border-b-4 border-amber-300 bg-gradient-to-t from-amber-100">
             {icon}
           </div>
         </div>
