@@ -21,7 +21,7 @@ export default function ProjectCard({
     <article
       ref={ref}
       style={{ transitionDelay: hasAnimated ? offset : "0ms" }}
-      className={`relative m-2 flex h-80 w-2/3 max-w-[700px] flex-col items-center justify-between rounded-br-[80px] border-r-2 border-b-2 border-amber-300 p-4 pt-0 text-center text-amber-100 shadow-amber-100/40 transition-all duration-1000 ease-in select-none sm:w-1/2 md:w-1/4 ${
+      className={`relative m-2 flex h-96 w-2/3 max-w-[700px] flex-col items-center justify-between rounded-br-[80px] border-r-2 border-b-2 border-amber-300 p-4 pt-0 text-center text-amber-100 shadow-amber-100/40 transition-all duration-1000 ease-in select-none sm:w-1/2 md:w-1/4 ${
         hasAnimated ? "translate-y-0 opacity-100" : "-translate-y-20 opacity-0"
       } `}
     >

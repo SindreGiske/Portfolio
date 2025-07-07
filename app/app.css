@@ -1,83 +1,83 @@
 @import "tailwindcss";
+
 @tailwind utilities;
 
 @theme {
-  --font-sans:
-    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 html,
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "tomorrow", sans-serif;
 
-  @apply bg-white dark:bg-gray-950;
+    @apply bg-white dark:bg-gray-950;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
-  (prefers-reduced-motion) {
+    @media (prefers-color-scheme: dark) {
+        color-scheme: dark;
+    }(prefers-reduced-motion) {
     .hidden {
-      transition: none;
+        transition: none;
     }
-  }
-  scroll-snap-type: y proximity;
-  scroll-behavior: smooth;
+} scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
 }
 
 section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 @keyframes pulseFade {
-  0%,
-  100% {
-    background-color: black;
-  }
-  50% {
-    background-color: #ffd230;
-  }
+    0%,
+    100% {
+        background-color: black;
+    }
+    50% {
+        background-color: #ffd230;
+    }
 }
 
 @keyframes slideIcon {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(120vw);
-  }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(120vw);
+    }
 }
 
 @keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
+
 .animate-shimmer {
-  animation: shimmer 3s infinite;
+    animation: shimmer 3s infinite;
 }
 
 .animate-slide-icon {
-  animation: slideIcon 60s linear forwards;
+    animation: slideIcon 60s linear forwards;
 }
 
 .icon-style {
-  height: 100px;
-  width: 100px;
+    height: 100px;
+    width: 100px;
 }
 
 .scrollButtonBG {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
 }
