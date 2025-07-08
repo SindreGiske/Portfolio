@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @theme {
-    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    --font-sans: "Tomorrow", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
 }
 
@@ -12,13 +12,13 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: "tomorrow", sans-serif;
+    font-family: "Tomorrow", sans-serif;
 
     @apply bg-white dark:bg-gray-950;
 
     @media (prefers-color-scheme: dark) {
         color-scheme: dark;
-    }(prefers-reduced-motion) {
+    }(prefers-reduced-motion: reduce) {
     .hidden {
         transition: none;
     }
