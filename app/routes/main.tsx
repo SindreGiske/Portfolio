@@ -4,6 +4,7 @@ import HeroSection from "~/routes/landing/HeroSection";
 import AboutSection from "~/routes/landing/AboutSection";
 import ProjectsSection from "~/routes/landing/ProjectsSection";
 import ExperienceSection from "~/routes/landing/ExperienceSection";
+import { ContactSection } from "~/routes/landing/ContactSection";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "Sindre's Portfolio" }, { name: "description", content: "Welcome to React Router!" }];
@@ -16,6 +17,7 @@ export default function main() {
       <AboutSection />
       <ProjectsSection />
       <ExperienceSection />
+      <ContactSection />
     </BodyWrapper>
   );
 }
