@@ -67,6 +67,6 @@ which I ended up using a lot to make Vercel cooperate with my custom domain.
 Might've been easier if I bought the domain from Vercel directly,  
 but I thought a domain is a domain. 
 
-I bought the domain from the popular Domain distributer GoDaddy.com,  
+I bought the domain from the popular domain distributer GoDaddy.com,  
 whose website also strayed pretty far from what I'd hoped and preferred  
 it be and include. Nonetheless after some struggle I made it work. 
